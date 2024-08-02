@@ -105,7 +105,7 @@ aus_accommodation <- read.csv(
     <<key = State, index = Date>>
   )
 ???
-
+### --- early return: immediate feedback / skipping lengthier checks --- 
 if(!("fpp3" %in% .packages())) return(c("You need to load the fpp3 package!" = TRUE))
 
 checks <- c(
@@ -117,6 +117,7 @@ checks <- c(
   
 if(any(checks)) return(checks)
 
+### -- foreshadowing future content/exercises --- ###
 if(!is_yearquarter(aus_accommodation$Date)) cat("Great, you've got a tsibble!\nAlthough something doesn't look right - check the frequency of the data, why isn't it quarterly?\n")
 FALSE
 ```
@@ -270,6 +271,7 @@ vic_tourism <- tourism |>
 ???
   
 if(!("fpp3" %in% .packages())) return(c("You need to load the fpp3 package!" = TRUE))
+## --- checking execution environment // sufficient and necessary ----
 compare_ggplot <- function(x, y) if(is.ggplot(x)) identical(ggplot2::ggplot_build(x)$data, ggplot2::ggplot_build(y)$data) else FALSE
 
 c(
